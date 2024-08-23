@@ -1,4 +1,4 @@
-defmodule RollDiceWeb.DiceController do
+defmodule RollDiceWeb.RollDiceController do
   use RollDiceWeb, :controller
   require OpenTelemetry.Tracer, as: Tracer
 
