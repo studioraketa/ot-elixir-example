@@ -8,6 +8,11 @@ defmodule RollDice.MixProject do
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
+      releases: [
+        roll_dice: [
+          applications: [opentelemetry: :temporary]
+        ]
+      ],
       aliases: aliases(),
       deps: deps()
     ]
@@ -58,7 +63,13 @@ defmodule RollDice.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:opentelemetry_api, github: "open-telemetry/opentelemetry-erlang", sparse: "apps/opentelemetry_api", override: true},
+      {:opentelemetry, github: "open-telemetry/opentelemetry-erlang", sparse: "apps/opentelemetry", override: true},
+      {:opentelemetry_exporter, github: "open-telemetry/opentelemetry-erlang", sparse: "apps/opentelemetry_exporter", override: true},
+      {:opentelemetry_phoenix, github: "open-telemetry/opentelemetry-erlang-contrib", sparse: "instrumentation/opentelemetry_phoenix", override: true},
+      {:opentelemetry_bandit, github: "open-telemetry/opentelemetry-erlang-contrib", sparse: "instrumentation/opentelemetry_bandit", override: true},
+      {:opentelemetry_ecto, github: "open-telemetry/opentelemetry-erlang-contrib", sparse: "instrumentation/opentelemetry_ecto", override: true}
     ]
   end
 

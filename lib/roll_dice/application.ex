@@ -7,6 +7,10 @@ defmodule RollDice.Application do
 
   @impl true
   def start(_type, _args) do
+    OpentelemetryBandit.setup()
+    OpentelemetryPhoenix.setup(adapter: :bandit)
+    OpentelemetryEcto.setup([:dice_game, :repo])
+
     children = [
       RollDiceWeb.Telemetry,
       RollDice.Repo,
