@@ -20,6 +20,12 @@ defmodule RollDiceWeb.Router do
     get "/", PageController, :home
   end
 
+  scope "/api", RollDiceWeb do
+    pipe_through :api
+
+    get "/rolldice", DiceController, :roll
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", RollDiceWeb do
   #   pipe_through :api
