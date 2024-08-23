@@ -18,6 +18,7 @@ defmodule RollDiceWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    resources "/dices", DiceController
   end
 
   scope "/api", RollDiceWeb do

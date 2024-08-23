@@ -1,0 +1,8 @@
+<.header>
+  Edit Dice <%= @dice.id %>
+  <:subtitle>Use this form to manage dice records in your database.</:subtitle>
+</.header>
+
+<.dice_form changeset={@changeset} action={~p"/dices/#{@dice}"} />
+
+<.back navigate={~p"/dices"}>Back to dices</.back>

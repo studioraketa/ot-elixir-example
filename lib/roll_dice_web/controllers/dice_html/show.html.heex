@@ -1,0 +1,16 @@
+<.header>
+  Dice <%= @dice.id %>
+  <:subtitle>This is a dice record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/dices/#{@dice}/edit"}>
+      <.button>Edit dice</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Name"><%= @dice.name %></:item>
+  <:item title="Sides"><%= @dice.sides %></:item>
+</.list>
+
+<.back navigate={~p"/dices"}>Back to dices</.back>

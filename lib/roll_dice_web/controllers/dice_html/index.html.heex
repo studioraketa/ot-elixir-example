@@ -1,0 +1,24 @@
+<.header>
+  Listing Dices
+  <:actions>
+    <.link href={~p"/dices/new"}>
+      <.button>New Dice</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="dices" rows={@dices} row_click={&JS.navigate(~p"/dices/#{&1}")}>
+  <:col :let={dice} label="Name"><%= dice.name %></:col>
+  <:col :let={dice} label="Sides"><%= dice.sides %></:col>
+  <:action :let={dice}>
+    <div class="sr-only">
+      <.link navigate={~p"/dices/#{dice}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/dices/#{dice}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={dice}>
+    <.link href={~p"/dices/#{dice}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>
